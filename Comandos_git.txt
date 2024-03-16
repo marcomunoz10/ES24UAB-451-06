@@ -1,0 +1,18 @@
+git clone https://github.com/1668329/es2024_45_6.git
+
+git status
+
+//para poder identificarse a la hora de hacer commit:
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+
+git add Carpeta/archivo.txt		//sube "archivo.txt" de la carpeta "Carpeta"
+git commit -m "añadido archivo.txt"
+git push
+
+git add* //sube todo
+
+git mv archivo.txt Carpeta2/ 		//mueve "archivo.txt" a  "Carpeta2"
+
+
