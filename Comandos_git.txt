@@ -16,3 +16,12 @@ git add* //sube todo
 git mv archivo.txt Carpeta2/ 		//mueve "archivo.txt" a  "Carpeta2"
 
 
+//RAMAS
+git checkout nombre_rama_a_la_que_quieres_ir
+git branch nombre_rama_que_quieres_crear
+git checkout -b creas_rama_y_te_mueves_a_ella
+
+//FUSIONAR RAMAS
+paso 1: ir a la rama principal
+paso 2: git merge nombre_rama_secundaria
+paso 3: git log //verifica la fusión
