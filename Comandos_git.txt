@@ -11,7 +11,7 @@ git add Carpeta/archivo.txt		//sube "archivo.txt" de la carpeta "Carpeta"
 git commit -m "añadido archivo.txt"
 git push
 
-git add* //sube todo
+git add * //sube todo
 
 git mv archivo.txt Carpeta2/ 		//mueve "archivo.txt" a  "Carpeta2"
 
