@@ -1,0 +1,7 @@
+ID: RNF-01-06
+Type: Requisit NO Funcional/ Restriccions de disseny
+Version: 1.0
+Title: Tipus de pagament
+Description: El mètode de pagament es podrà escollir entre els mètodes escollits pel venedor. Un cop fet l’abonament la comanda serà concloent. 
+Relations: RF-02-09 
+Comments:
