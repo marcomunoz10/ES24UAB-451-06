@@ -1,7 +1,1 @@
-ID: RF-03-03
-Type:  Requisit Funcional
-Version: 2.0
-Title: Quilòmetres per entrega
-Description:  El programa ha de portar un registre dels quilòmetres fets durant cada entrega.
-Relations: RNF-04-03
-Comments: 
+
