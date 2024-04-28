@@ -1,7 +1,0 @@
-ID: RF-04-03
-Type: Funcional
-Version: 2.0
-Title: Infraestructura de comanda.
-Description: Aquesta plataforma proveirà de la infraestructura perquè els usuaris puguin fer comandes d’allò que necessiten, i llavors el sistema els hi oferirà com a resultat unes quantes propostes de botigues pròximes que els hi podran enviar la comanda demanada.
-Relations: 
-Comments:
