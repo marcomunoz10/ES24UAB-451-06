@@ -14,6 +14,7 @@ Si és transportista haurà de proporcionar les seves dades fiscals.<br>
    2.1 L’usuari inicia sessió.<br>
 3. Sinó:<br>
    3.1 L’usuari es registra.<br>
+   
 **Subfluxos**:<br>
 
 *Si es registra un client:*<br>
