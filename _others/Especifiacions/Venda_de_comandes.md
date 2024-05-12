@@ -19,7 +19,8 @@ Les botigues presenten els productes a la plataforma. Per a que la plataforma pu
 
 **Subfluxos**:<br>
 *Botiguer pot escollir entrega pròpia.* <br>
-*Si botiguer vol fer enviament amb transportista*: <br>
+
+*Si botiguer vol fer enviament amb transportista*:
 1. Busca transportistes de proximitat.<br>
 2. Comprova disponibilitat de transportista.<br>
 3. Escull transportista.<br>
