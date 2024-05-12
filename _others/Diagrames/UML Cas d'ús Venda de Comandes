@@ -1,0 +1,19 @@
+@startuml
+Usuari <|-- Botiguer
+Botiguer --> (Mostrar Ofertes)
+(Mostrar Ofertes) --> (Mostrar Publicitat) : <include>
+(Mostrar Publicitat) <|-- ServeiPublicitat
+Botiguer -->  (Escollir Tipus Lliurament)
+(Escollir Tipus Lliurament) --> (Transportista Proximitat)
+(Transportista Proximitat) --> (Comprovar Disponibilitat) : <include>
+(Escollir Tipus Lliurament) --> (Entrega Pròpia)
+Botiguer --> (Pactar Variable Comissió)
+(Pactar Variable Comissió) --> AdministradorPlataforma
+Botiguer --> (Escollir Mètode Pagament)
+Botiguer --> (Pagar Plataforma)
+(Pagar Plataforma) --> AdministradorPlataforma
+AdministradorPlataforma --> (Pagament Transportistes)
+AdministradorPlataforma --> (Control BD)
+Botiguer --> (Reclamar Pagament)
+(Reclamar Pagament) --> SistemaAssegurança
+@enduml

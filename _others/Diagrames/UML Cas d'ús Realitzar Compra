@@ -1,0 +1,15 @@
+@startuml
+Usuari <|-- Client
+Client --> (Acceptació Oferta)
+(Acceptació Oferta) --> (Realitzar Compra) : <include>
+(Realitzar Compra) --> ServeiPagament
+ServeiPagament <|-- PayPal
+ServeiPagament <|-- Targeta
+(Realitzar Compra) --> (Pagament Efectiu)
+Client --> (Cercador Necessitats)
+Client --> (Gestió Comandes)
+(Gestió Comandes) --> (Retorn)
+(Retorn) <|-- AgentExtern
+(Gestió Comandes) --> (Seguiment)
+(Seguiment) --> Mapa
+@enduml

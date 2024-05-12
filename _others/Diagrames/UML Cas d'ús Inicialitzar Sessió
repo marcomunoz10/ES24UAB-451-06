@@ -1,0 +1,9 @@
+@startuml
+Usuari --> (Registrar-se) 
+Usuari --> (Login)
+(Registrar-se) <|-- (Com a Client)
+(Registrar-se) <|-- (Com a Transportista)
+(Com a Client) --> (Telèfon)
+(Com a Client) --> ServeiExtern
+(Com a Client) --> (Correu Electrònic)
+@enduml
