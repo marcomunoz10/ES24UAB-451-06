@@ -15,6 +15,7 @@ Si és transportista haurà de proporcionar les seves dades fiscals.<br>
 3. Sinó:<br>
    3.1 L’usuari es registra.<br>
 **Subfluxos**:<br>
+
 *Si es registra un client:*<br>
    1. Si escull registrar-se per telèfon:<br>
       1.1 L’usuari proporciona el seu telèfon i una contrasenya.<br>
