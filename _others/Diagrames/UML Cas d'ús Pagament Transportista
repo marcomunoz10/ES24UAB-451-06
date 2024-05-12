@@ -1,0 +1,10 @@
+@startuml
+Usuari <|-- Transportista
+Transportista --> (Cobrament Mensual)
+Transportista --> (Fer Trajecte)
+(Fer Trajecte) <|-- GPS
+GPS --> (Registre KM Transportista)
+(Registre KM Transportista) --> AdministradorPlataforma
+AdministradorPlataforma --> (Pagament Transportistes)
+AdministradorPlataforma --> (Control BD)
+@enduml
