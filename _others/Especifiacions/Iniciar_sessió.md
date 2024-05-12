@@ -27,6 +27,7 @@ Si és transportista haurà de proporcionar les seves dades fiscals.<br>
       
 *Si es registra un transportista:*<br>
    1. Proporcionar dades fiscals.<br>
+   
 **Fluxos alternatius**:<br>
 **Postcondició**:
 Cada cop que l’usuari vulgui entrar a la plataforma haurà d’iniciar sessió.
