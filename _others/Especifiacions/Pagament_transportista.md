@@ -29,7 +29,7 @@ Transportista, GPS, Administrador de la plataforma, Client.<br>
   3.1 El botiguer s’encarrega de l’entrega.<br>
   3.2 No hi ha seguiment GPS.<br>
   
-**Fluxos alternatius**:
+**Fluxos alternatius**:<br>
 *No hi ha transportistes disponibles*<br>
 Emetre missatge d’error i botiguer fa l’entrega.<br>
 
