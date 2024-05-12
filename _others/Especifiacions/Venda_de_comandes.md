@@ -17,14 +17,14 @@ Les botigues presenten els productes a la plataforma. Per a que la plataforma pu
 6. Es paga a la plataforma segons la comissió.<br>
 7. El botiguer escull tipus d’enviament de comanda.<br>
 
-**Subfluxos**:
+**Subfluxos**:<br>
 *Botiguer pot escollir entrega pròpia.* <br>
-**Si botiguer vol fer enviament amb transportista**: <br>
+*Si botiguer vol fer enviament amb transportista*: <br>
 1. Busca transportistes de proximitat.<br>
 2. Comprova disponibilitat de transportista.<br>
 3. Escull transportista.<br>
 
-**Fluxos alternatius**:<br>
+**Fluxos alternatius**:
 1. Si pagament anul·lat:<br>
    1.1 Una companyia externa  fa un estudi per protegir als venedors.<br>
    
