@@ -22,7 +22,7 @@ Si és transportista haurà de proporcionar les seves dades fiscals.<br>
       2.1 L’usuari proporciona el seu correu i una contrasenya.<br>
    3. Si escull registrar-se per un servei extern:<br>
       3.1 L’usuari inicia sessió a través d’aquest servei.<br>
-*Si es registra un transportista:*
+*Si es registra un transportista:*<br>
    1. Proporcionar dades fiscals.<br>
 **Fluxos alternatius**:<br>
 **Postcondició**:
