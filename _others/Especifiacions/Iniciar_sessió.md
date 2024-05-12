@@ -29,7 +29,7 @@ Si és transportista haurà de proporcionar les seves dades fiscals.<br>
 Cada cop que l’usuari vulgui entrar a la plataforma haurà d’iniciar sessió.
 Requeriments no funcionals.<br>
 
-**Prioritat**: Alta
+**Prioritat**: Alta<br>
 **Comentaris**: Cap
 
 
