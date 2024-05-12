@@ -1,0 +1,78 @@
+@startuml
+left to right direction
+
+
+' ***** Actors
+actor Usuari
+actor Client
+actor Botiguer
+actor Transportista
+
+
+
+' ***** Relacions entre actors:
+Usuari <|-- Client
+Usuari <|-- Transportista
+Usuari <|-- Botiguer
+
+
+' ***** Relacions de l'usuari:
+
+
+' ***** Registre:
+Usuari --> (Login)
+Usuari --> (Registrar-se)
+(Registrar-se) <|-- (Com a client)
+(Com a client) --> (Correu electrònic)
+(Com a client) --> (Telèfon)
+(Com a client) --> ServeiExtern
+(Registrar-se) <|-- (Com a transportista)
+
+
+
+' ***** Relacions del client:
+Client --> (Cercador necessitats)
+Client --> (Acceptació d'oferta)
+(Acceptació d'oferta) --> (Realitzar compra) : <<include>>
+(Realitzar compra) --> ServeiPagament
+ServeiPagament <|-- Targeta
+ServeiPagament <|-- PayPal
+(Realitzar compra) --> (Pagament en efectiu en arribar l'entrega)
+
+
+Client --> (Gestió de comandes)
+(Gestió de comandes) --> (Retorn comanda) 
+(Retorn comanda) <|-- AgentExtern
+(Gestió de comandes) --> (Seguiment comandes)
+(Seguiment comandes) --> Mapa
+
+' ***** Relacions del botiguer:
+Botiguer --> (Escollir mètodes de pagament)
+Botiguer --> (Pactar variable de comissió)
+(Pactar variable de comissió) --> AdministradorPlataforma
+Botiguer --> (Reclamar pagaments)
+Botiguer --> (Pagar plataforma)
+Botiguer --> (Mostrar ofertes)
+(Mostrar ofertes) --> (Mostrar publicitat) : <<include>>
+(Mostrar publicitat) <|-- ServeiPublicitat
+(Pagar plataforma) --> AdministradorPlataforma
+(Reclamar pagaments) --> SistemaAssegurança
+Botiguer --> (Escollir tipus de lliurament)
+(Escollir tipus de lliurament) --> (Entrega pròpia) 
+(Escollir tipus de lliurament) --> (Transportistes de proximitat)
+(Transportistes de proximitat) --> (Comprovar disponibilitat) : <<include>>
+(Comprovar disponibilitat) --|> Transportista
+
+
+
+' ***** Relacions Tranpsortista:
+Transportista --> (Fer trajecte)
+(Fer trajecte) -->GPS
+GPS --> (Registre KM transportista)
+(Registre KM transportista) -->AdministradorPlataforma
+Transportista --> (Cobrament mensual) 
+
+' ***** Relacions AdministradorPlataforma:
+AdministradorPlataforma --> (Pagamet transportistes)
+AdministradorPlataforma --> (Control BD)
+@enduml
