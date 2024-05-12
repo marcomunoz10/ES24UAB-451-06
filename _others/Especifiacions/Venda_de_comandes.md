@@ -8,7 +8,7 @@ Les botigues presenten els productes a la plataforma. Per a que la plataforma pu
 
 **Precondició**: Les empreses que podran inscriure's al programa són les petites botigues i empreses de proximitat no associades a cap grup empresarial.
 
-**Flux Principal**:<br>
+**Flux Principal**:
 1. La botiga pacta una comissió de venta amb la plataforma.<br>
 2. La botiga escull els mètodes de pagament que tindran els clients disponibles a l’hora de realitzar una comanda.<br>
 3. Es mostren les ofertes en relació a les necessitats del client.<br>
@@ -17,7 +17,7 @@ Les botigues presenten els productes a la plataforma. Per a que la plataforma pu
 6. Es paga a la plataforma segons la comissió.<br>
 7. El botiguer escull tipus d’enviament de comanda.<br>
 
-**Subfluxos**:<br>
+**Subfluxos**:
 *Botiguer pot escollir entrega pròpia.* <br>
 *Si botiguer vol fer enviament amb transportista*: <br>
 1. Busca transportistes de proximitat.<br>
@@ -28,10 +28,10 @@ Les botigues presenten els productes a la plataforma. Per a que la plataforma pu
 1. Si pagament anul·lat:<br>
    1.1 Una companyia externa  fa un estudi per protegir als venedors.<br>
    
-**Postcondició**:<br>
+**Postcondició**:
 Si botiguer escull fer enviament amb transportistes i no hi ha disponibilitat, botiguer fa entrega pel seu compte.
 
-**Requeriments no funcionals**:<br>
+**Requeriments no funcionals**:
 Hi ha d’haver un sistema de reclamacions per als venedors per si algun client anul·la un pagament havent rebut la compra.<br>
 En cas que hagi de transportar el paquet el botiguer no hi haurà opció de seguiment del paquet, tot i això, quedarà constància dels quilòmetres del trajecte. 
 
