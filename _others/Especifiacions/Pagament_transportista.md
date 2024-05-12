@@ -1,14 +1,17 @@
 # Pagament transportista
 
 **Versió**: 1.0<br>
+
 **Descripció:**
 El cost del transport es calcula segons la distància recorreguda durant cada lliurament 
 registrada pel GPS. La plataforma calcula el cost total dels lliuraments fets per cada transportista 
 basant-se en les distàncies enregistrades pel GPS realitza una transferència bancària a cadascú. 
 La plataforma manté un registre a la base de dades de tots els pagaments realitzats a cada transportista, assegurant-se 
 que rebin la compensació adequada pel seu treball.<br>
+
 **Actors**:
 Transportista, GPS, Administrador de la plataforma, Client.<br>
+
 **Precondició**:<br>
 1. El transportista ha d’estar registrat amb les dades fiscals que l’identifiquin.<br>
 2. L’usuari ha de finalitzar la comanda.<br>
