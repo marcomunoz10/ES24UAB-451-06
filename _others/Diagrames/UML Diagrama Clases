@@ -1,0 +1,167 @@
+@startuml
+class Usuari {
+compte_usuari
+nom:string
+email:string
+numero_telèfon:string
+contrasenya:string
++actualitzarDades()
++getEmail()
++getNTelefon()
++getNom()
+}
+
+class Client {
+compte_client
+n_comandes:int
++cercarNecessitats()
++modificarDades()
++eliminarDades()
++getNComandes()
++anul·larComanda()
+}
+
+class TarjetaCredit {
+id_tarjeta
+número_tarjeta
+data_expiració
+}
+
+Client "1" -- "0..*" TarjetaCredit
+
+
+class Botiguer {
+compte_botiguer
+ubicació_botiga:string
+no_pertany_grup_empresarial:bool
++consultarStock()
++consultarOfertes()
++reclamarAnul·lament()
+}
+
+class Transportista {
+compte_transportista
+carnet_conduir:string
+no_pertany_grup_empresarial:bool
+localització
+historic_lliuraments
++consultarDisponibilitat(): bool
++canviaDisponibilitat(hora: int, dia: datetime): bool
++actualitzarUbicacio(latitud: float, longitud: float): bool
++notificarEntrega(): bool
+}
+
+Usuari <-- Client
+Usuari <-- Transportista
+Usuari <-- Botiguer
+
+class AdministradorPlataforma {
+id_programador: int
+nom: string
++afegirPublicitat(banner)
++treurePublicitat(banner)
+}
+
+
+class Publicista {
++crearAnunci()
++modificarAnunci()
++eliminarAnunci()
++mostrarAnunci()
++anuncis(): List[string]
+}
+
+note bottom of Publicista:En el metodo Anuncis(), lo que va despues de los dos puntos es lo que devuelve el metodo, en este caso devuelve una lista de anuncios.
+note bottom of Usuari: "+" delante de cada metodo significa que estos son públicos.
+
+class Comanda {
+id_comanda: int
+productes: List[string]
+estat: string
+preu_total: float
+
++ afegir_producte(producte, quantitat)
++ eliminar_producte(producte)
++escollirBotiguer()
++calcular_preu_total()
++generar_informe()
+}
+
+class Oferta {
+id_oferta: int
+botiga: string
+productes: List[string]
+quantitat: List[int]
+preu total: float
+dia_entrega: date
+hora_aproximada: time
+transportista: string
+distància: float
+  
++crear_oferta()
++obtenir_preu_total()
++modificar_data_entrega()
++acceptar_oferta()
++rebutjar_oferta()
++modificar_oferta()
+}
+
+Oferta "0..1" --> "0..1" Client
+
+Oferta "1" --> "1" Comanda: La oferta es converteix en comanda una vegada es acceptada pel client.
+
+class Producte{
+id_producte: int
+nom: string
+descripció: string
+preu_unitat: float
++getPacksOfertes()
++getStock()
++afegirStock()
+}
+
+
+class llistaProductes{
++afegirNouProducte()
++treureProducte()
++modificarOfertes()
++afegirOfertes()
++treureOfertes()
+}
+
+
+Comanda "1" -- "*" Producte : Molts productes es poden trobar a una comanda.
+Botiguer "1" -- "1" llistaProductes : El botiguer té una llista de productes disponibles.
+Producte --o llistaProductes : El producte es una part d'una llista de productes, però pot existir sense la llista.
+
+
+class Plataforma {
++ mostrarOfertes()
++ actualitzar_estat_Comanda(estat)
++ mostrarMetodesPagament()
++ realitzar_pagament(metode_pagament)
++ metodesEnviamentProducte()
++ assignar_botiguer(botiguer)
++ assignar_transportista(transportista)
++ calcularTrajecte()
++ comandaFeta() : Retorna bool
+}
+
+AdministradorPlataforma -- Plataforma 
+AdministradorPlataforma -- Publicista
+
+Client -- Comanda
+
+class CompraDefinitiva{
+id_compra
+productes:List[string]
+data_creacio: datetime
+client: string
+venedor: string
+transportista: string
++triarMetodePagament(PayPal, tarjeta, efectiu): retorna un dels tres.
+}
+
+Client "1" -- "1" CompraDefinitiva
+
+@enduml
