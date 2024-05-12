@@ -17,21 +17,21 @@ Les botigues presenten els productes a la plataforma. Per a que la plataforma pu
 6. Es paga a la plataforma segons la comissió.<br>
 7. El botiguer escull tipus d’enviament de comanda.<br>
 
-**Subfluxos**:
+**Subfluxos**:<br>
 *Botiguer pot escollir entrega pròpia.* <br>
 *Si botiguer vol fer enviament amb transportista*: <br>
 1. Busca transportistes de proximitat.<br>
 2. Comprova disponibilitat de transportista.<br>
 3. Escull transportista.<br>
 
-**Fluxos alternatius**:
+**Fluxos alternatius**:<br>
 1. Si pagament anul·lat:<br>
    1.1 Una companyia externa  fa un estudi per protegir als venedors.<br>
    
-**Postcondició**:
+**Postcondició**:<br>
 Si botiguer escull fer enviament amb transportistes i no hi ha disponibilitat, botiguer fa entrega pel seu compte.
 
-**Requeriments no funcionals**:
+**Requeriments no funcionals**:<br>
 Hi ha d’haver un sistema de reclamacions per als venedors per si algun client anul·la un pagament havent rebut la compra.<br>
 En cas que hagi de transportar el paquet el botiguer no hi haurà opció de seguiment del paquet, tot i això, quedarà constància dels quilòmetres del trajecte. 
 
