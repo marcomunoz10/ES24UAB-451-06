@@ -1,0 +1,20 @@
+@startuml
+actor Client
+participant Plataforma
+participant Botiguer
+participant Transportista
+
+Client -> Plataforma: sol·licitar comanda
+Plataforma -> Botiguer: buscar botigues disponibles
+Botiguer --> Plataforma: retornar ofertes
+Plataforma -> Client: presentar ofertes disponibles
+Client -> Plataforma: seleccionar oferta
+Plataforma -> Botiguer: confirmar comanda
+Botiguer -> Botiguer: preparar comanda
+Botiguer -> Transportista: sol·licitar transportista
+Transportista -> Botiguer: confirmar recollida
+Transportista -> Transportista: recollir comanda
+Transportista -> Client: lliurar comanda
+Client -> Plataforma: confirmar recepció
+
+@enduml
