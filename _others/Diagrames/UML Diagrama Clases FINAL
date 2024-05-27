@@ -1,0 +1,180 @@
+@startuml
+class Usuari {
+  compte_usuari
+  nom: string
+  email: string
+  numero_telèfon: string
+  contrasenya: string
+  +actualitzarDades()
+  +getEmail()
+  +getNTelefon()
+  +getNom()
+}
+
+class Client {
+  compte_client
+  n_comandes: int
+  +cercarNecessitats()
+  +modificarDades()
+  +eliminarDades()
+  +getNComandes()
+  +anul·larComanda()
+}
+
+class TargetaCredit {
+  id_targeta: int
+  número_targeta: string
+  data_expiració: date
+}
+
+Client "1" -- "0..*" TargetaCredit
+
+class Botiguer {
+  compte_botiguer
+  ubicació_botiga: string
+  no_pertany_grup_empresarial: bool
+  +consultarEstoc()
+  +consultarOfertes()
+  +reclamarAnul·lament()
+}
+
+class Transportista {
+  compte_transportista
+  carnet_conduir: string
+  no_pertany_grup_empresarial: bool
+  localització: string
+  historial_lliuraments: List[int]
+  +consultarDisponibilitat(): bool
+  +canviarDisponibilitat(hora: int, dia: datetime): bool
+  +actualitzarUbicació(latitud: float, longitud: float): bool
+  +notificarEntrega(): bool
+}
+
+Usuari <|-- Client
+Usuari <|-- Transportista
+Usuari <|-- Botiguer
+
+class AdministradorPlataforma {
+  id_programador: int
+  nom: string
+  +afegirPublicitat(banner)
+  +treurePublicitat(banner)
+}
+
+class Publicista {
+  +crearAnunci()
+  +modificarAnunci()
+  +eliminarAnunci()
+  +mostrarAnunci()
+  +anuncis(): List[string]
+}
+
+note bottom of Publicista:En el mètode anuncis(), el que va després dels dos punts és el que retorna el mètode, en aquest cas retorna una llista d'anuncis.
+note bottom of Usuari: "+" davant de cada mètode significa que aquests són públics.
+
+class Comanda {
+  id_comanda: int
+  productes: List[Producte]
+  estat: string
+  preu_total: float
+  +afegir_producte(producte, quantitat)
+  +eliminar_producte(producte)
+  +escollirBotiguer()
+  +calcular_preu_total()
+  +generar_informe()
+}
+
+class Oferta {
+  id_oferta: int
+  botiga: string
+  productes: List[Producte]
+  quantitat: List[int]
+  preu_total: float
+  dia_entrega: date
+  hora_aproximada: time
+  transportista: string
+  distància: float
+  +crear_oferta()
+  +obtenir_preu_total()
+  +modificar_data_entrega()
+  +acceptar_oferta()
+  +rebutjar_oferta()
+  +modificar_oferta()
+}
+
+Oferta "0..1" --> "0..1" Client
+Oferta "1" --> "1" Comanda : L'oferta es converteix en comanda una vegada és acceptada pel client.
+
+class Producte {
+  id_producte: int
+  nom: string
+  descripció: string
+  preu_unitat: float
+  +getPacksOfertes()
+  +getEstoc()
+  +afegirEstoc()
+}
+
+class LlistaProductes {
+  +afegirNouProducte()
+  +treureProducte()
+  +modificarOfertes()
+  +afegirOfertes()
+  +treureOfertes()
+}
+
+Comanda "1" -- "*" Producte : Molts productes es poden trobar en una comanda.
+Botiguer "1" -- "1" LlistaProductes : El botiguer té una llista de productes disponibles.
+Producte --o LlistaProductes : El producte és una part d'una llista de productes, però pot existir sense la llista.
+
+class Plataforma {
+  +mostrarOfertes()
+  +actualitzarEstatComanda(estat)
+  +mostrarMetodesPagament()
+  +realitzarPagament(metode_pagament)
+  +metodesEnviamentProducte()
+  +assignarBotiguer(botiguer)
+  +assignarTransportista(transportista)
+  +calcularTrajecte()
+  +comandaFeta(): bool
+}
+
+AdministradorPlataforma -- Plataforma 
+AdministradorPlataforma -- Publicista
+
+Client -- Comanda
+
+class CompraDefinitiva {
+  id_compra: int
+  productes: List[Producte]
+  data_creació: datetime
+  client: string
+  venedor: string
+  transportista: string
+  +triarMetodePagament(PayPal, targeta, efectiu): string
+}
+
+Client "1" -- "1" CompraDefinitiva
+
+class Pagament {
+  metode: String
+  import: Float
+  +realitzarPagament()
+  +reemborsament()
+}
+
+Client "1" -- "1" Pagament : realitza
+
+class Distribució {
+  id_distribució: int
+  estat: string
+  transportista: Transportista
+  comanda: Comanda
+  +actualitzarEstat()
+  +obtenirEstat()
+}
+
+Transportista "1" -- "*" Distribució
+Comanda "1" -- "1" Distribució
+
+@enduml
