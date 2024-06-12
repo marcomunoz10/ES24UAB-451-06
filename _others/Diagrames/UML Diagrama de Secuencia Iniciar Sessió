@@ -1,0 +1,37 @@
+@startuml
+actor Usuario
+boundary "Sistema" as Sistema
+control "Servicio Externo" as Servicio
+
+Usuario -> Sistema : Elegir "Registrarse" o "Iniciar sesión"
+
+alt Usuario ya registrado
+    Usuario -> Sistema : Iniciar sesión
+    Sistema -> Usuario : Sesión iniciada
+else Usuario no registrado
+    Usuario -> Sistema : Elegir método de registro
+    alt Registro por teléfono
+        Usuario -> Sistema : Proporcionar teléfono y contraseña
+        Sistema -> Usuario : Cuenta creada e inicia sesión
+    else Registro por correo electrónico
+        Usuario -> Sistema : Proporcionar correo y contraseña
+        Sistema -> Usuario : Cuenta creada e inicia sesión
+    else Registro por servicio externo
+        Usuario -> Sistema : Elegir servicio externo
+        Sistema -> Servicio : Redirigir a servicio externo
+        Servicio -> Usuario : Proporcionar datos
+        Usuario -> Servicio : Proporcionar credenciales
+        Servicio -> Sistema : Confirmar datos
+        Sistema -> Usuario : Iniciar sesión con datos del servicio externo
+    end
+end
+
+alt Si es transportista
+    Usuario -> Sistema : Proporcionar datos fiscales
+    Sistema -> Usuario : Validar y guardar datos
+end
+
+Usuario -> Sistema : Confirmar sesión
+Sistema -> Usuario : Sesión iniciada
+
+@enduml
