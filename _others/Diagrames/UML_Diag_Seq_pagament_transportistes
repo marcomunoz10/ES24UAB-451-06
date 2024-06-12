@@ -1,0 +1,26 @@
+@startuml
+actor Client
+actor Transportista
+boundary Sistema
+control ControlSistema
+entity Botiga 
+entity GPS 
+
+Client -> Sistema: Finalitza la comanda()
+Sistema -> ControlSistema : Finalitzar la comanda()
+ControlSistema -> Botiga: Cobra comissió()
+Botiga -> ControlSistema : <<return>>
+ControlSistema -> Sistema : <<return>>
+Sistema -> Transportista : <<return>>
+
+alt El botiguer no vol fer l'enviament
+    Botiga -> Transportista : Contracta un transportista()
+    Transportista -> Sistema : Iniciar trajecte()
+    Sistema -> ControlSistema : Iniciar trajecte()
+    ControlSistema -> GPS : Registrar localitzacio()
+    GPS -> ControlSistema : Envia dades de la distància()
+    ControlSistema-> Sistema : Registra distància recorreguda()
+    Sistema -> Client : <<posicio transportista>> 
+
+end
+@enduml
