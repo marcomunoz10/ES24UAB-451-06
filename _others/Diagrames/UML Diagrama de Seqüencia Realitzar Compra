@@ -1,0 +1,36 @@
+@startuml
+actor Client
+actor ProveidorExtern
+actor Botiguer
+boundary ClasseInterf
+control ClasseControl
+entity PerfBotiguer
+entity Cistella
+
+loop client vol afegir productes
+    Client -> ClasseInterf : cercaProducte()
+    ClasseInterf -> Client : cercaProducte()
+    Client -> ClasseInterf : afegirProducte()
+    ClasseInterf -> ClasseControl : afegirProducte()
+    ClasseControl -> Cistella: afegirProducte()
+    ClasseControl -> PerfBotiguer : comprovaDisponibilitat()
+    PerfBotiguer -> ClasseControl : comprovaDisponibilitat()
+    ClasseControl -> ClasseInterf : comprovaDisponibilitat()
+    ClasseInterf -> Botiguer : comprovaDisponibilitat()
+    alt producte existeix
+      Client-> ClasseInterf: IndicarQuantitat()
+      ClasseInterf-> ClasseControl: IndicarQuantitat()
+      ClasseControl -> Cistella: IndicarQuantitat()
+      Client -> ClasseInterf: EscollirBotiga()
+      ClasseInterf -> PerfBotiguer: EscollirBotiga()
+      PerfBotiguer -> ClasseInterf: MetodePagament()
+      ClasseInterf-> Client: MetodePagament()
+      Client -> ClasseInterf: FerPagament()
+      ClasseInterf->ClasseControl: FerPagament()
+    else producte no existeix
+      ClasseInterf -> Client : mostrarError()
+  end
+end
+ClasseInterf -> Client : mostrarMissatgeComandaSolicitada()
+
+@enduml
